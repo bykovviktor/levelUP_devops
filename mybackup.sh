@@ -2,16 +2,16 @@
 
 #files fot the backup
 
-filelist=("/home/user/backup_script/myfiles/file1.txt" "/home/user/backup_script/myfiles/file2.py" "/home/user/backup_script/myfiles/file3.cfg")
+filelist=("/home/ubuntu/config1" "/home/ubuntu/config2")
 
 
 #select directory, where files will be placed
-backupdir="/home/user/backup_script/backup_folder" 
+backupdir="/home/ubuntu/backup_folder" 
 
 #maximum backup depth
 backupdepth=3
  if ! [ -d ${backupdir} ]; then #check, that backup idr is exist
-  echo "BackupDir Doesn't exist. Please create it first"            #if no, then create a dir
+  mkdir ${backupdir}            #if no, then create a dir
  fi
 
 for i in ${filelist[*]} 
