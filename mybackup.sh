@@ -10,7 +10,9 @@ backupdir="/home/user/backup_script/backup_folder"
 
 #maximum backup depth
 backupdepth=3
-
+ if ! [ -d ${backupdir} ]; then #check, thar dir with a file name is exist
+  echo "BackupDir Doesn't exist. Please create it first"            #if no, then create a dir
+ fi
 
 for i in ${filelist[*]} 
 do 
