@@ -10,10 +10,7 @@ backupdir="/home/ubuntu/backup_folder"
 
 #maximum backup depth
 backupdepth=3
- if ! [ -d ${backupdir} ]; then #check, that backup idr is exist
-  mkdir ${backupdir}            #if no, then create a dir
- fi
-
+ 
 for i in ${filelist[*]} 
 do 
  filecount=0
@@ -23,7 +20,7 @@ do
  fullbackupfilename="${backupdir}/${filename}/${backupfilename}" 
 
  if ! [ -d ${backupdir}/${filename} ]; then #check, thar dir with a file name is exist
-  mkdir ${backupdir}/${filename}            #if no, then create a dir
+  mkdir -p ${backupdir}/${filename}            #if no, then create a dir
  fi
 
  filecount=$(ls "${backupdir}/${filename}" -l | grep "${filename}.*bak" | wc -l) #ckeck count of the files i the backup dir for the file. It should be no more then deckupdepth
